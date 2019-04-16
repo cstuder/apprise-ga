@@ -4,16 +4,28 @@ GitHub Action to send a push notification via a series of different services tha
 
 Supports services like Slack, AWS SNS, Discord, IFTTT, Matrix, Microsoft Teams, Telegram, Twitter etc., as well as email and webhooks.
 
+Supports dynamically adding event data to the notification message.
+
 ## Usage
 
 1. Create a new action in your workflow which uses `cstuder/apprise-ga/apprise@master`.
 1. Look up the syntax for your push notification URL in the list of [Supported Notifications](https://github.com/caronc/apprise#supported-notifications) by Apprise. (I.e. `protocol://user:password@hostname/channel`)
 1. Add this URL as the secret `APPRISE_URL` to the action.
-1. Add your message to `args` in the format ["TITLE", "MESSAGE"].
+1. Add your message to `args` in the format ["TITLE", "MESSAGE"]. (This might not work in the current version of the visual workflow editor.)
 
-*Note:* Environment variables in your message will be expanded. I.E.: `args = ["Commit successfull", "Commit: $GITHUB_SHA"]`.
+### Inserting event data with templates
 
-### Workflow file syntax
+For both title and message you can use the [Jinja2](http://jinja.pocoo.org) syntax to insert data from the event trigger into you notification.
+
+Find the event data in the list of [GitHub webhook payloads](https://developer.github.com/v3/activity/events/types/).
+
+#### Templating example
+
+For a push event, you might use the following arguments:
+
+`args = ["Push received on {{ ref }}", "Commit by {{ head_commit.author.name }}: {{ head_commit.message | truncate(128) }} \n (SHA: {{ head_commit.id[0:8] }})"]`
+
+### Action block syntax
 
 ```yaml
 action "Send push notification" {
