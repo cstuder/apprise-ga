@@ -9,7 +9,7 @@ LABEL "repository"="http://github.com/cstuder/apprise-ga"
 LABEL "homepage"="https://github.com/cstuder/apprise-ga/tree/master/apprise"
 LABEL "maintainer"="Christian Studer <cstuder@existenz.ch>"
 
-RUN pip install apprise
+RUN pip install apprise j2cli
 ADD entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT [ "/entrypoint.sh" ]
