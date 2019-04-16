@@ -6,6 +6,16 @@ Supports services like Slack, AWS SNS, Discord, IFTTT, Matrix, Microsoft Teams, 
 
 Supports dynamically adding event data to the notification message.
 
+## Action block syntax
+
+```hcl
+action "Send push notification" {
+  uses = "cstuder/apprise-ga/apprise@master"
+  secrets = ["APPRISE_URL"]
+  args = ["Notification title", "Notification message"]
+}
+```
+
 ## Usage
 
 1. Create a new action in your workflow which uses `cstuder/apprise-ga/apprise@master`.
@@ -15,7 +25,7 @@ Supports dynamically adding event data to the notification message.
 
 ### Inserting event data with templates
 
-For both title and message you can use the [Jinja2](http://jinja.pocoo.org) syntax to insert data from the event trigger into you notification.
+For both title and message you can use the [Jinja2](http://jinja.pocoo.org) syntax to insert data from the event trigger (`/github/workflow/event.json`) into your notification.
 
 Find the event data in the list of [GitHub webhook payloads](https://developer.github.com/v3/activity/events/types/).
 
@@ -24,16 +34,6 @@ Find the event data in the list of [GitHub webhook payloads](https://developer.g
 For a push event, you might use the following arguments:
 
 `args = ["Push received on {{ ref }}", "Commit by {{ head_commit.author.name }}: {{ head_commit.message | truncate(128) }} ({{ head_commit.id[0:7] }})"]`
-
-### Action block syntax
-
-```yaml
-action "Send push notification" {
-  uses = "cstuder/apprise-ga/apprise@master"
-  secrets = ["APPRISE_URL"]
-  args = ["Notification title", "Notification message"]
-}
-```
 
 ## Action configuration
 
