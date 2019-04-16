@@ -23,7 +23,7 @@ Find the event data in the list of [GitHub webhook payloads](https://developer.g
 
 For a push event, you might use the following arguments:
 
-`args = ["Push received on {{ ref }}", "Commit by {{ head_commit.author.name }}: {{ head_commit.message | truncate(128) }} \n (SHA: {{ head_commit.id[0:8] }})"]`
+`args = ["Push received on {{ ref }}", "Commit by {{ head_commit.author.name }}: {{ head_commit.message | truncate(128) }} ({{ head_commit.id[0:7] }})"]`
 
 ### Action block syntax
 
