@@ -6,4 +6,4 @@ set -eu
 # @author Christian Studer <cstuder@existenz.ch>
 
 # Uses the Apprise CLI tool
-apprise -t "$0" -b "$1" "$APPRISE_URL"
+apprise -t "$1" -b "$2" "$APPRISE_URL"

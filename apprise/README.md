@@ -39,8 +39,8 @@ Key|Value
 
 Position|Value
 ---|---
-0|Notification title
-1|Notification message
+1|Notification title
+2|Notification message
 
 ### Optional arguments
 
