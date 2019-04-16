@@ -7,7 +7,7 @@ Supports services like Slack, AWS SNS, Discord, IFTTT, Matrix, Microsoft Teams, 
 ## Usage
 
 1. Create a new action in your workflow which uses `cstuder/apprise-ga/apprise@master`.
-1. Look up the syntax for your push notification URL in the list of [Supported Notifications](https://github.com/caronc/apprise#supported-notifications) by Apprise. (I.e. <protocol://user:password@hostname/channel>)
+1. Look up the syntax for your push notification URL in the list of [Supported Notifications](https://github.com/caronc/apprise#supported-notifications) by Apprise. (I.e. `protocol://user:password@hostname/channel`)
 1. Add this URL as the secret `APPRISE_URL` to the action.
 1. Add your message to `args` in the format ["TITLE", "MESSAGE"].
 

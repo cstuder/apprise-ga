@@ -6,4 +6,4 @@ GitHub Action to send a push notification via a series of different services tha
 
 ## Usage
 
-See <apprise/README.md>.
+See [apprise/README.md](apprise/README.md).
