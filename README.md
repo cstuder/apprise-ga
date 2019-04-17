@@ -1,10 +1,10 @@
 # apprise-ga
 
-GitHub Action to send a push notification via a series of different services thanks to the the [Apprise library](https://github.com/caronc/apprise)
+GitHub Action to send a dynamic push notification to every single platform thanks to the [Apprise library](https://github.com/caronc/apprise)
 
 Supports services like Slack, AWS SNS, Discord, IFTTT, Matrix, Microsoft Teams, Telegram, Twitter etc., as well as email and webhooks.
 
-Supports dynamically adding event data to the notification message.
+Supports dynamically adding event data to the notification message with Jinja2 templates.
 
 ## Action block syntax
 
