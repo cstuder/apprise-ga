@@ -6,7 +6,7 @@ LABEL "com.github.actions.icon"="message-square"
 LABEL "com.github.actions.color"="orange"
 
 LABEL "repository"="http://github.com/cstuder/apprise-ga"
-LABEL "homepage"="https://github.com/cstuder/apprise-ga/tree/master/apprise"
+LABEL "homepage"="https://github.com/cstuder/apprise-ga"
 LABEL "maintainer"="Christian Studer <cstuder@existenz.ch>"
 
 RUN pip install apprise j2cli
