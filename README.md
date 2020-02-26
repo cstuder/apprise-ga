@@ -13,6 +13,8 @@ uses: cstuder/apprise-ga@master
 with:
   title: "Notication title"
   message: "Message"
+env:
+  APPRISE_URL: ${{ secrets.APPRISE_URL }}
 ```
 
 ## Complete usage
