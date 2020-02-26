@@ -6,7 +6,7 @@ jobs:
     name: Send a notification on push
     steps:
       - name: Apprise notification
-        uses: cstuder/apprise-ga@syntax-update
+        uses: cstuder/apprise-ga@master
         with:
           title: "Push received on {{ ref }}"
           message: "Commit by {{ head_commit.author.name }}: {{ head_commit.message | truncate(128) }} ({{ head_commit.id[0:7] }})"
