@@ -6,22 +6,21 @@ Supports services like Slack, AWS SNS, Discord, IFTTT, Matrix, Microsoft Teams, 
 
 Supports dynamically adding event data to the notification message with Jinja2 templates.
 
-## Action block syntax
+## Example usage
 
-```hcl
-action "Send push notification" {
-  uses = "cstuder/apprise-ga@master"
-  secrets = ["APPRISE_URL"]
-  args = ["Notification title", "Notification message"]
-}
+```yaml
+uses: cstuder/apprise-ga@master
+with:
+  title: "Notication title"
+  message: "Message"
 ```
 
-## Usage
+## Complete usage
 
-1. Create a new action in your workflow which uses `cstuder/apprise-ga@master`.
+1. Create a new action in your workflow which uses `cstuder/apprise-ga@master`. (Or a tagged version.)
 1. Look up the syntax for your push notification URL in the list of [Supported Notifications](https://github.com/caronc/apprise#supported-notifications) by Apprise. (I.e. `protocol://user:password@hostname/channel`)
 1. Add this URL as the secret `APPRISE_URL` to the action.
-1. Add your message to `args` in the format ["TITLE", "MESSAGE"]. (This might not work in the current version of the visual workflow editor.)
+1. Add your message as inputs `title` or `message`.
 
 ### Inserting event data with templates
 
@@ -33,30 +32,26 @@ Find the event data in the list of [GitHub webhook payloads](https://developer.g
 
 For a push event, you might use the following arguments:
 
-`args = ["Push received on {{ ref }}", "Commit by {{ head_commit.author.name }}: {{ head_commit.message | truncate(128) }} ({{ head_commit.id[0:7] }})"]`
+```yaml
+title: "Push received on {{ ref }}"
+message: "Commit by {{ head_commit.author.name }}: {{ head_commit.message | truncate(128) }} ({{ head_commit.id[0:7] }})"
+```
 
-## Action configuration
+## Inputs
 
-### Environment variables
+### `title`
 
-None.
+**Required** String with notification title.
 
-### Secrets
+### `message`
 
-Key|Value
----|---
-`APPRISE_URL`|Notification URL according to [Apprise](https://github.com/caronc/apprise#supported-notifications)
+**Required** String with notification message.
 
-### Required arguments
+## Secrets
 
-Position|Value
----|---
-1|Notification title
-2|Notification message
+### `APPRISE_URL`
 
-### Optional arguments
-
-None.
+**Required** Notification URL according to the [Apprise documentation](https://github.com/caronc/apprise#supported-notifications)
 
 ## License
 
