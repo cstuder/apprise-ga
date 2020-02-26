@@ -1,0 +1,22 @@
+name: Apprise Notification
+author: Christian Studer <cstuder@existenz.ch>
+description: Send a dynamic push notification to every single platform thanks to the Apprise library
+
+inputs:
+  title:
+    description: "Notification title, optionally templated"
+    required: true
+  message:
+    description: "Notification message, optionally templated"
+    required: true
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.title }}
+    - ${{ inputs.message }}
+
+branding:
+  icon: message-square
+  color: orange

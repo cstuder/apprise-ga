@@ -1,0 +1,14 @@
+on: [push]
+
+jobs:
+  push_notification:
+    runs-on: ubuntu-latest
+    name: Send a notification on push
+    steps:
+      - name: Apprise notification
+        uses: cstuder/apprise-ga@syntax-update
+        with:
+          title: "Push received on {{ ref }}"
+          message: "Commit by {{ head_commit.author.name }}: {{ head_commit.message | truncate(128) }} ({{ head_commit.id[0:7] }})"
+        env:
+          APPRISE_URL: ${{ secrets.APPRISE_URL }}
