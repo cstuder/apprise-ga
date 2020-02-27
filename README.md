@@ -21,7 +21,7 @@ env:
 
 1. Create a new action in your workflow which uses `cstuder/apprise-ga@master`. (Or a tagged version.)
 1. Look up the syntax for your push notification URL in the list of [Supported Notifications](https://github.com/caronc/apprise#supported-notifications) by Apprise. (I.e. `protocol://user:password@hostname/channel`)
-1. Add this URL as the secret `APPRISE_URL` to the action.
+1. Create a [repository secret](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) named `APPRISE_URL` with your URL as content.
 1. Add your message as inputs `title` or `message`.
 
 ### Inserting event data with templates
