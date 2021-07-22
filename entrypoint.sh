@@ -21,4 +21,4 @@ title=$(j2 "$titlefile" "$GITHUB_EVENT_PATH")
 message=$(j2 "$messagefile" "$GITHUB_EVENT_PATH")
 
 # Uses the Apprise CLI tool to send the notifciation
-apprise -t "$title" -b "$message" "$APPRISE_URL"
+apprise -t "$title" -b "$message" $APPRISE_URL
