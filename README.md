@@ -53,7 +53,9 @@ message: "Commit by {{ head_commit.author.name }}: {{ head_commit.message | trun
 
 ### `APPRISE_URL`
 
-**Required** Notification URL according to the [Apprise documentation](https://github.com/caronc/apprise#supported-notifications)
+**Required** Notification URL(s) according to the [Apprise documentation](https://github.com/caronc/apprise#supported-notifications).
+
+To notify mulitple URLs, add them separated by spaces.
 
 ## License
 
