@@ -11,7 +11,7 @@ Supports dynamically adding event data to the notification message with Jinja2 t
 ```yaml
 uses: cstuder/apprise-ga@master
 with:
-  title: "Notication title"
+  title: "Notification title"
   message: "Message"
 env:
   APPRISE_URL: ${{ secrets.APPRISE_URL }}
