@@ -1,0 +1,17 @@
+on:
+  schedule:
+    # Once a week
+    - cron: "0 0 * * 1"
+
+jobs:
+  push_notification:
+    runs-on: ubuntu-latest
+    name: Send a test notification on schedule
+    steps:
+      - name: Apprise notification
+        uses: cstuder/apprise-ga@master
+        with:
+          title: "apprise-ga test notification"
+          message: "The system only works in total darkness."
+        env:
+          APPRISE_URL: ${{ secrets.APPRISE_URL }}
