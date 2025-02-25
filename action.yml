@@ -4,10 +4,10 @@ description: Send a dynamic push notification to every single platform thanks to
 
 inputs:
   title:
-    description: "Notification title, optionally templated"
+    description: "Notification title, optionally Jinja2 templated"
     required: true
   message:
-    description: "Notification message, optionally templated"
+    description: "Notification message, optionally Jinja2 templated"
     required: true
 
 runs:
